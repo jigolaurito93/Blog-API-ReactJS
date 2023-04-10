@@ -18,7 +18,7 @@ export default function Home() {
 
     return (
         <div>
-            <h1 className="text-center">Welcome to the Blog</h1>
+            <h1 className="text-center text-white my-4">Welcome to the Blog</h1>
             {posts.map( post => <PostCard key={post.id} post={post} />)}
         </div>
     )
