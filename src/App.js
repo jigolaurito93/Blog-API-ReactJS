@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import AlertMessage from './components/AlertMessage';
 import Navbar from './components/Navbar';
-import ButtonDisplay from './views/ButtonDisplay';
 import CreatePost from './views/CreatePost';
 import Home from './views/Home';
 import Login from './views/Login';
-import RacerDisplay from './views/RacerDisplay';
 import Register from './views/Register';
 import SinglePost from './views/SinglePost';
 
 
 function App() {
-    let name = 'Brian';
 
     const now = new Date();
 
@@ -34,13 +31,11 @@ function App() {
 
     return (
         <div className="App">
-            <Navbar username={name} city={"Chicago"} loggedIn={loggedIn} logUserOut={logUserOut} />
+            <Navbar loggedIn={loggedIn} logUserOut={logUserOut} />
             {message ? <AlertMessage message={message} category={category} flashMessage={flashMessage} /> : null}
             <div className='container'>
                 <Routes>
                     <Route path='/' element={<Home />} /> 
-                    <Route path='/buttons' element={<ButtonDisplay name={name} />} />
-                    <Route path='/racers' element={<RacerDisplay />} />
                     <Route path='/register' element={<Register flashMessage={flashMessage} />} />
                     <Route path='/login' element={<Login flashMessage={flashMessage} logUserIn={setLoggedIn} />} />
                     <Route path='/create' element={<CreatePost flashMessage={flashMessage} loggedIn={loggedIn} />} />

@@ -20,14 +20,12 @@ export default function Register({ flashMessage }) {
             myHeaders.append('Content-Type', 'application/json');
 
             let formData = JSON.stringify({
-                first_name: event.target.firstName.value,
-                last_name: event.target.lastName.value,
                 email: event.target.email.value,
                 username: event.target.username.value,
                 password
             })
 
-            fetch('http://localhost:5000/api/users', {
+            fetch("https://kekambas-blog-api.onrender.com/api/users", {
                 method: 'POST',
                 headers: myHeaders,
                 body: formData
@@ -49,8 +47,6 @@ export default function Register({ flashMessage }) {
             <h3 className="text-center">Sign Up Here!</h3>
             <form action="" onSubmit={handleRegister}>
                 <div className="form-group">
-                    <input type="text" name="firstName" className="form-control my-3" placeholder='Enter First Name' />
-                    <input type="text" name="lastName" className="form-control my-3" placeholder='Enter Last Name' />
                     <input type="text" name="email" className="form-control my-3" placeholder='Enter Email' />
                     <input type="text" name="username" className="form-control my-3" placeholder='Enter Username' />
                     <input type="password" name="password" className="form-control my-3" placeholder='Enter Password' />
